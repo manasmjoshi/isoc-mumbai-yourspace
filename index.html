@@ -417,8 +417,8 @@ const BAKED_MAP={"india":{"w":620,"h":744,"paths":{"Mizoram":"M518.6 370.0L516.7
    To go live: publish an ANONYMISED feed tab of your Google Sheet
    (File > Share > Publish to web > pick the feed tab > CSV) and paste its URL
    below. Leave blank to use the built-in snapshot. See notes from the build. */
-const SHEET_CSV_URL = "";          // <-- paste published-CSV URL here
-const REFRESH_SECONDS = 60;        // auto-refresh interval
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8_ycCaC1EywRpbaEO_j1N5zCIdN52QX76NhwWr9w5nsXZ2cVXbb7oa3jJZpZ5TL5thOrL2s0MPdVd/pub?gid=209688874&single=true&output=csv";          // <-- paste published-CSV URL here
+const REFRESH_SECONDS = 21600;        // auto-refresh interval
 /* =========================================================================== */
 let D = BAKED_D;                   // current dataset (snapshot by default)
 let MAP = BAKED_MAP;               // current geo (india paths stay constant)
