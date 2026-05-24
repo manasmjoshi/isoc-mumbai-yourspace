@@ -51,10 +51,17 @@ header{padding:42px 0 26px}
 .brandname{font-family:'Libre Franklin',sans-serif;font-weight:800;font-size:clamp(15px,2.4vw,21px);
   letter-spacing:.01em;color:var(--ink);text-transform:uppercase;line-height:1.15}
 .brandname .x{color:var(--teal);font-weight:600;margin:0 3px}
-.live{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+.headeractions{margin-left:auto;display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.live{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ink2);display:inline-flex;align-items:center;gap:8px;
   background:var(--card2);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
 .live .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(64,178,164,.18);animation:pulse 2.4s infinite}
+.register{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:#0c1c2c;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  background:var(--teal);border:1px solid var(--teal);padding:7px 14px;border-radius:999px;
+  transition:transform .15s,box-shadow .15s,background .15s}
+.register:hover{transform:translateY(-1px);background:#4cc6b6;box-shadow:0 4px 16px rgba(64,178,164,.35)}
+.register .ico{font-size:13px;line-height:1}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,7vw,72px);line-height:1.02;margin:6px 0 6px;letter-spacing:-.5px}
 h1 em{font-style:italic;color:var(--lav)}
@@ -62,6 +69,7 @@ h1 em{font-style:italic;color:var(--lav)}
 .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .chip{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink2);background:var(--card2);border:1px solid var(--line);padding:6px 11px;border-radius:999px}
 .chip b{color:var(--ink)}
+ 
 
 /* ---------- tabs ---------- */
 nav.tabs{position:sticky;top:0;z-index:20;display:flex;gap:4px;flex-wrap:wrap;padding:12px 0;
