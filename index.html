@@ -280,7 +280,6 @@ footer .mono{font-family:'IBM Plex Mono',monospace}
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab" data-p="about">⟡ About</button>
     <button class="tab active" data-p="overview">⟡ Overview</button>
     <button class="tab" data-p="habits">⟡ Digital Habits</button>
     <button class="tab" data-p="reflections">⟡ Reflections</button>
@@ -289,27 +288,6 @@ footer .mono{font-family:'IBM Plex Mono',monospace}
     <button class="tab" data-p="share">⟡ Shareables</button>
   </nav>
 
-  <!-- ============ ABOUT ============ -->
-  <section class="page" id="about">
-    <div class="aboutwrap">
-      <div class="flyercard">
-        <a href="https://raw.githubusercontent.com/manasmjoshi/isoc-mumbai-yourspace/main/isoc_mumbai_yourspace_event_flyer.jpeg" target="_blank" rel="noopener" title="Open full-size flyer">
-          <img class="flyer" src="https://raw.githubusercontent.com/manasmjoshi/isoc-mumbai-yourspace/main/isoc_mumbai_yourspace_event_flyer.jpeg" alt="Chronically Online — workshop flyer" loading="lazy"/>
-        </a>
-      </div>
-      <div class="aboutside">
-        <div class="sectionhead"><div class="lbl">The workshop</div><h2>About this session</h2></div>
-        <p class="abouttext">A free Zoom workshop by the Internet Society India Mumbai Chapter, in collaboration with YourSpace, on digital fatigue, doomscrolling, fake rest, overstimulation, burnout, and the pressure to always stay online.</p>
-        <div class="aboutmeta">
-          <span class="chip">🗓 <b>Sat 30 May 2026</b></span>
-          <span class="chip">🕖 <b>7:00 PM IST</b></span>
-          <span class="chip">💻 Free Zoom workshop</span>
-        </div>
-        <a class="register big" href="https://docs.google.com/forms/d/e/1FAIpQLSfubkWmI6IXe-AGEbP9qawVbjbzrXlBqiyWEZMbXOZ6Yanc3g/viewform?usp=sharing&ouid=103126562718411208536" target="_blank" rel="noopener"><span class="ico">↗</span> Register here</a>
-        <p class="flyernote">Tap the flyer to open it full-size in a new tab.</p>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ OVERVIEW ============ -->
   <section class="page show" id="overview">
@@ -455,8 +433,8 @@ const BAKED_MAP={"india":{"w":620,"h":744,"paths":{"Mizoram":"M518.6 370.0L516.7
    To go live: publish an ANONYMISED feed tab of your Google Sheet
    (File > Share > Publish to web > pick the feed tab > CSV) and paste its URL
    below. Leave blank to use the built-in snapshot. See notes from the build. */
-const SHEET_CSV_URL = "";          // <-- paste published-CSV URL here
-const REFRESH_SECONDS = 60;        // auto-refresh interval
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8_ycCaC1EywRpbaEO_j1N5zCIdN52QX76NhwWr9w5nsXZ2cVXbb7oa3jJZpZ5TL5thOrL2s0MPdVd/pub?gid=209688874&single=true&output=csv";          // 
+const REFRESH_SECONDS = 86400;        // auto-refresh interval
 /* =========================================================================== */
 let D = BAKED_D;                   // current dataset (snapshot by default)
 let MAP = BAKED_MAP;               // current geo (india paths stay constant)
