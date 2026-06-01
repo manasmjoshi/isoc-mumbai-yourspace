@@ -85,16 +85,16 @@ nav.anchor a.active{color:#0c1c2c;background:var(--teal);border-color:var(--teal
 @media(max-width:620px){nav.anchor{gap:6px}nav.anchor a{min-width:calc(50% - 6px);font-size:11px;padding:8px 10px}}
 
 /* ---------- generic sections ---------- */
-section{margin-bottom:54px;scroll-margin-top:80px}
-.shead{margin-bottom:18px}
+section{margin-bottom:64px;scroll-margin-top:80px;padding:32px 0}
+.shead{margin-bottom:28px}
 .shead .lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--lav)}
 .shead h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px);margin:6px 0 0;letter-spacing:-.3px}
-.shead p{color:var(--ink2);font-size:14.5px;max-width:65ch;margin:10px 0 0;line-height:1.6}
+.shead p{color:var(--ink2);font-size:14.5px;max-width:none;margin:10px 0 0;line-height:1.6;white-space:nowrap}
 .note-sm{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink3);margin-top:6px;display:inline-flex;align-items:center;gap:7px}
 .note-sm::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal)}
 
 /* ---------- cards/grid ---------- */
-.grid{display:grid;gap:16px}
+.grid{display:grid;gap:18px}
 .g4{grid-template-columns:repeat(4,1fr)}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g2{grid-template-columns:repeat(2,1fr)}
@@ -198,7 +198,7 @@ section{margin-bottom:54px;scroll-margin-top:80px}
 @media(max-width:760px){.gallery{grid-template-columns:1fr}}
 .gimg{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#000;line-height:0;box-shadow:0 6px 22px rgba(0,0,0,.35)}
 .gimg img{width:100%;height:auto;display:block}
-.gcap{padding:10px 14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:var(--ink3);text-transform:uppercase;border-top:1px solid var(--line);background:var(--bg2)}
+.gcap{padding:12px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--ink2);text-transform:none;border-top:1px solid var(--line);background:var(--bg2);text-align:center}
 
 /* ---------- speakers ---------- */
 .team{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -253,7 +253,7 @@ footer{margin-top:30px;padding:30px 0 0;border-top:1px solid var(--line);display
 .slidertrack{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 4px 14px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 .slidertrack::-webkit-scrollbar{height:6px}
 .slidertrack::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
-.slide{flex:0 0 auto;width:min(86%,720px);scroll-snap-align:center}
+.slide{flex:0 0 auto;width:min(92%,860px);scroll-snap-align:center}
 .slidearrow{position:absolute;top:calc(50% - 24px);transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(15,32,48,.92);border:1px solid var(--line);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;transition:.15s;font-size:24px;line-height:1;padding-bottom:3px;backdrop-filter:blur(4px)}
 .slidearrow:hover{background:var(--lav);color:#0c1c2c;border-color:var(--lav);transform:translateY(-50%) scale(1.05)}
 .slidearrow.prev{left:10px}.slidearrow.next{right:10px}
@@ -261,6 +261,7 @@ footer{margin-top:30px;padding:30px 0 0;border-top:1px solid var(--line);display
 .slidedots{display:flex;gap:8px;justify-content:center;margin-top:14px}
 .slidedot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;cursor:pointer;transition:.18s;padding:0}
 .slidedot.active{background:var(--lav);width:24px;border-radius:4px}
+.slidecounter{text-align:center;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.08em}
 
 /* ---------- speaker avatar placeholder ---------- */
 .person .avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--lav),var(--teal));color:#0c1c2c;font-family:'Fraunces',serif;font-size:30px;font-weight:500;box-shadow:0 4px 14px rgba(0,0,0,.35);overflow:hidden}
@@ -412,11 +413,6 @@ footer{margin-top:30px;padding:30px 0 0;border-top:1px solid var(--line);display
       <div class="card"><h3>Notification reflex × screen-time</h3><p class="note">Instant-checkers cluster at higher screen-time</p><div id="heat"></div></div>
     </div>
 
-    <div class="card" style="margin-top:16px">
-      <h3>What the community asked for</h3>
-      <p class="note">Recurring asks clustered from <span id="askN"></span> open-ended registration answers</p>
-      <div class="asklist" id="asklist"></div>
-    </div>
   </section>
 
   <!-- ============ REG vs ATT ============ -->
@@ -462,6 +458,7 @@ footer{margin-top:30px;padding:30px 0 0;border-top:1px solid var(--line);display
       <button class="slidearrow next" aria-label="Next">›</button>
     </div>
     <div class="slidedots" id="slidedots"></div>
+    <div class="slidecounter" id="slidecounter"></div>
   </section>
 
 <!-- ============ SPEAKERS ============ -->
@@ -608,11 +605,6 @@ bars($('#selfp'),{'Yes, significantly':D.selfp['Yes, significantly']||0,'Maybe, 
   });
 })();
 
-/* asks */
-const amax=Math.max(1,...D.asks.map(a=>a[1]));
-$('#askN').textContent=D.asks_n;
-D.asks.forEach(([t,nn],i)=>$('#asklist').appendChild(el('div','askrow',
-  `<span class="rk">${String(i+1).padStart(2,'0')}</span><span class="at">${t}</span><span class="ac"><span class="abar"><i style="width:${Math.round(100*nn/amax)}%"></i></span>${nn}</span>`)));
 
 /* ---- attendance KPIs + conversion rows ---- */
 const aRate=Math.round(100*ATT.n_att_unique/ATT.n_reg);
@@ -655,7 +647,7 @@ const GALLERY=[
 ];
 GALLERY.forEach(([img,cap],i)=>{
   const slide=el('div','slide');
-  slide.appendChild(el('div','gimg',`<img src="${ASSETS[img]}" alt="${cap}"/><div class="gcap">${cap}</div>`));
+  slide.appendChild(el('div','gimg',`<img src="${ASSETS[img]}" alt="${cap}" loading="lazy"/><div class="gcap">${cap}</div>`));
   $('#gallery').appendChild(slide);
   const dot=el('button','slidedot'+(i===0?' active':''));
   dot.setAttribute('aria-label','Go to slide '+(i+1));
@@ -664,6 +656,10 @@ GALLERY.forEach(([img,cap],i)=>{
 });
 (function(){
   const track=$('#gallery'),dots=document.querySelectorAll('.slidedot'),slides=document.querySelectorAll('#gallery .slide');
+  const counter=$('#slidecounter');
+  const total=slides.length;
+  const updateCounter=(idx)=>{counter.textContent=(idx+1)+' / '+total;};
+  updateCounter(0);
   const step=()=>{const s=slides[0]; return s?s.offsetWidth+14:track.offsetWidth*0.86;};
   document.querySelector('.slidearrow.next').onclick=()=>track.scrollBy({left:step(),behavior:'smooth'});
   document.querySelector('.slidearrow.prev').onclick=()=>track.scrollBy({left:-step(),behavior:'smooth'});
@@ -672,6 +668,7 @@ GALLERY.forEach(([img,cap],i)=>{
     let best=0,bestDist=Infinity,c=track.scrollLeft+track.offsetWidth/2;
     slides.forEach((s,i)=>{const d=Math.abs(s.offsetLeft+s.offsetWidth/2-c);if(d<bestDist){bestDist=d;best=i;}});
     dots.forEach((d,i)=>d.classList.toggle('active',i===best));
+    updateCounter(best);
   });
 })();
 
