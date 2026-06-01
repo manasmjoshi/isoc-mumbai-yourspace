@@ -201,9 +201,8 @@ section{margin-bottom:64px;scroll-margin-top:80px;padding:32px 0}
 .gcap{padding:12px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--ink2);text-transform:none;border-top:1px solid var(--line);background:var(--bg2);text-align:center}
 
 /* ---------- speakers ---------- */
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media(max-width:760px){.team{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:420px){.team{grid-template-columns:1fr}}
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:620px){.team{grid-template-columns:1fr}}
 .person{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
 .person .role{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--lav)}
 .person h4{font-family:'Fraunces',serif;font-weight:500;font-size:19px;margin:8px 0 4px}
@@ -248,24 +247,28 @@ footer{margin-top:30px;padding:30px 0 0;border-top:1px solid var(--line);display
   .insight p,.insight b{color:#0c1c2c}
 }
 
-/* ---------- gallery slider ---------- */
-.slider{position:relative;overflow:hidden;border-radius:14px}
-.slidertrack{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 4px 14px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
-.slidertrack::-webkit-scrollbar{height:6px}
-.slidertrack::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
-.slide{flex:0 0 auto;width:min(92%,860px);scroll-snap-align:center}
-.slidearrow{position:absolute;top:calc(50% - 24px);transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(15,32,48,.92);border:1px solid var(--line);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;transition:.15s;font-size:24px;line-height:1;padding-bottom:3px;backdrop-filter:blur(4px)}
-.slidearrow:hover{background:var(--lav);color:#0c1c2c;border-color:var(--lav);transform:translateY(-50%) scale(1.05)}
-.slidearrow.prev{left:10px}.slidearrow.next{right:10px}
-@media(max-width:560px){.slidearrow{width:36px;height:36px;font-size:20px}}
-.slidedots{display:flex;gap:8px;justify-content:center;margin-top:14px}
-.slidedot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;cursor:pointer;transition:.18s;padding:0}
-.slidedot.active{background:var(--lav);width:24px;border-radius:4px}
-.slidecounter{text-align:center;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.08em}
+/* ---------- gallery carousel ---------- */
+.carousel{position:relative;max-width:900px;margin:0 auto;border-radius:14px;overflow:hidden}
+.carousel-viewport{position:relative;width:100%;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:#000}
+.carousel-slide{display:none;width:100%;flex-direction:column}
+.carousel-slide.active{display:flex}
+.carousel-slide .gimg{border-radius:0;border:none;box-shadow:none}
+.carousel-slide .gimg img{width:100%;height:auto;display:block}
+.slidearrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(10,23,34,.85);border:1px solid var(--line);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;transition:.18s;font-size:26px;line-height:1;padding-bottom:3px;backdrop-filter:blur(6px)}
+.slidearrow:hover{background:var(--lav);color:#0c1c2c;border-color:var(--lav);transform:translateY(-50%) scale(1.08)}
+.slidearrow.prev{left:12px}.slidearrow.next{right:12px}
+@media(max-width:560px){.slidearrow{width:38px;height:38px;font-size:20px}}
+.slidedots{display:flex;gap:10px;justify-content:center;margin-top:16px}
+.slidedot{width:10px;height:10px;border-radius:50%;background:var(--line);border:none;cursor:pointer;transition:.18s;padding:0}
+.slidedot.active{background:var(--lav);width:28px;border-radius:5px}
+.slidecounter{text-align:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink3);letter-spacing:.08em}
 
 /* ---------- speaker avatar placeholder ---------- */
-.person .avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--lav),var(--teal));color:#0c1c2c;font-family:'Fraunces',serif;font-size:30px;font-weight:500;box-shadow:0 4px 14px rgba(0,0,0,.35);overflow:hidden}
+.person .avatar{width:100px;height:100px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--lav),var(--teal));color:#0c1c2c;font-family:'Fraunces',serif;font-size:36px;font-weight:500;box-shadow:0 4px 14px rgba(0,0,0,.35);overflow:hidden}
 .person .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.person .avatar.group{width:160px;height:160px;border-radius:14px}
+.person .avatar.group img{border-radius:14px}
+.person .names{font-size:12.5px;color:var(--ink2);margin:6px 0 4px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -452,10 +455,11 @@ footer{margin-top:30px;padding:30px 0 0;border-top:1px solid var(--line);display
   <section id="gallery">
     <div class="shead"><div class="lbl">From the room</div><h2>Inside the workshop</h2>
       <p>Moments from the live Zoom session: moderators, speakers, and the community that joined from 28 Indian states and 18 countries.</p></div>
-    <div class="slider">
-      <button class="slidearrow prev" aria-label="Previous">‹</button>
-      <div class="slidertrack" id="gallery"></div>
-      <button class="slidearrow next" aria-label="Next">›</button>
+    <div class="carousel">
+      <div class="carousel-viewport" id="carouselViewport">
+        <button class="slidearrow prev" id="carouselPrev" aria-label="Previous">‹</button>
+        <button class="slidearrow next" id="carouselNext" aria-label="Next">›</button>
+      </div>
     </div>
     <div class="slidedots" id="slidedots"></div>
     <div class="slidecounter" id="slidecounter"></div>
@@ -638,56 +642,70 @@ ROUNDS.forEach(([no,title,desc,img])=>{
   $('#agenda').appendChild(card);
 });
 
-/* ---- gallery ---- */
+/* ---- gallery carousel ---- */
 const GALLERY=[
  ['gallery-1.jpg','The room. Moderators, ISOC Mumbai team, YourSpace speakers and community members on Zoom'],
  ['gallery-2.jpg','Participants from across India and abroad joining the live session'],
  ['gallery-3.jpg',"During Round 2: YourSpace's Vinayak speaking to the room"],
  ['speakers-pano.jpg','The "Players of Your Space": Sakshi, Rashi, Kalyani, Vatsal, Yogitha'],
 ];
-GALLERY.forEach(([img,cap],i)=>{
-  const slide=el('div','slide');
-  slide.appendChild(el('div','gimg',`<img src="${ASSETS[img]}" alt="${cap}" loading="lazy"/><div class="gcap">${cap}</div>`));
-  $('#gallery').appendChild(slide);
-  const dot=el('button','slidedot'+(i===0?' active':''));
-  dot.setAttribute('aria-label','Go to slide '+(i+1));
-  dot.dataset.idx=i;
-  $('#slidedots').appendChild(dot);
-});
 (function(){
-  const track=$('#gallery'),dots=document.querySelectorAll('.slidedot'),slides=document.querySelectorAll('#gallery .slide');
-  const counter=$('#slidecounter');
-  const total=slides.length;
-  const updateCounter=(idx)=>{counter.textContent=(idx+1)+' / '+total;};
-  updateCounter(0);
-  const step=()=>{const s=slides[0]; return s?s.offsetWidth+14:track.offsetWidth*0.86;};
-  document.querySelector('.slidearrow.next').onclick=()=>track.scrollBy({left:step(),behavior:'smooth'});
-  document.querySelector('.slidearrow.prev').onclick=()=>track.scrollBy({left:-step(),behavior:'smooth'});
-  dots.forEach(d=>d.onclick=()=>{const i=+d.dataset.idx; slides[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});});
-  track.addEventListener('scroll',()=>{
-    let best=0,bestDist=Infinity,c=track.scrollLeft+track.offsetWidth/2;
-    slides.forEach((s,i)=>{const d=Math.abs(s.offsetLeft+s.offsetWidth/2-c);if(d<bestDist){bestDist=d;best=i;}});
-    dots.forEach((d,i)=>d.classList.toggle('active',i===best));
-    updateCounter(best);
+  const viewport=$('#carouselViewport'),dotsWrap=$('#slidedots'),counter=$('#slidecounter');
+  const total=GALLERY.length;
+  let current=0;
+
+  GALLERY.forEach(([img,cap],i)=>{
+    const slide=el('div','carousel-slide'+(i===0?' active':''));
+    slide.innerHTML=`<div class="gimg"><img src="${ASSETS[img]}" alt="${cap}" loading="lazy"/><div class="gcap">${cap}</div></div>`;
+    viewport.insertBefore(slide,viewport.querySelector('.slidearrow'));
+    const dot=el('button','slidedot'+(i===0?' active':''));
+    dot.setAttribute('aria-label','Go to slide '+(i+1));
+    dot.addEventListener('click',()=>goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  const slides=viewport.querySelectorAll('.carousel-slide');
+  const dots=dotsWrap.querySelectorAll('.slidedot');
+
+  function goTo(idx){
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current=((idx%total)+total)%total;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    counter.textContent=(current+1)+' / '+total;
+  }
+
+  counter.textContent='1 / '+total;
+  $('#carouselPrev').addEventListener('click',()=>goTo(current-1));
+  $('#carouselNext').addEventListener('click',()=>goTo(current+1));
+
+  document.addEventListener('keydown',(e)=>{
+    const g=viewport.getBoundingClientRect();
+    if(g.top>window.innerHeight||g.bottom<0) return;
+    if(e.key==='ArrowLeft') goTo(current-1);
+    if(e.key==='ArrowRight') goTo(current+1);
   });
 })();
 
 /* ---- speakers ---- */
-const TEAM=[
- {name:'Manas Joshi',role:'Moderator',org:'ISOC India Mumbai Chapter',url:'https://www.linkedin.com/in/manasmjoshi/'},
- {name:'Rashi Nevatia',role:'Speaker',org:'YourSpace',url:'https://www.linkedin.com/in/rashi-nevatia-2631371b0'},
- {name:'Kalyani Damle',role:'Speaker',org:'YourSpace',url:'https://www.linkedin.com/in/kalyani-damle-aa14a3212'},
- {name:'Sakshi Sethiya',role:'Speaker',org:'YourSpace',url:'https://www.linkedin.com/in/sakshisethiya180401'},
- {name:'Vatsal Parmar',role:'Speaker',org:'YourSpace',url:''},
- {name:'Yogitha Karthik',role:'Speaker',org:'YourSpace',url:''},
-];
-TEAM.forEach(p=>{
-  const initials=p.name.split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();
-  const photo=p.photo?`<img src="${p.photo}" alt="${p.name}"/>`:initials;
-  const linkbit=p.url?`<a href="${p.url}" target="_blank" rel="noopener">LinkedIn ↗</a>`:'<span style="font-family:IBM Plex Mono;font-size:11px;color:var(--ink3)">photo &amp; profile coming soon</span>';
-  const card=el('div','person',`<div class="avatar">${photo}</div><div class="role">${p.role}</div><h4>${p.name}</h4><div class="org">${p.org}</div>${linkbit}`);
-  $('#team').appendChild(card);
-});
+const MOD_PHOTO='https://raw.githubusercontent.com/manasmjoshi/isoc-mumbai-yourspace/main/assets/moderator-manas.jpg';
+const SPEAKERS_PHOTO='https://raw.githubusercontent.com/manasmjoshi/isoc-mumbai-yourspace/main/assets/speakers-yourspace.jpg';
+
+const modCard=el('div','person',
+  `<div class="avatar"><img src="${MOD_PHOTO}" alt="Manas Joshi"/></div>`+
+  `<div class="role">Moderator</div><h4>Manas Joshi</h4>`+
+  `<div class="org">Member, ISOC India Mumbai Chapter</div>`+
+  `<a href="https://www.linkedin.com/in/manasmjoshi/" target="_blank" rel="noopener">LinkedIn ↗</a>`);
+$('#team').appendChild(modCard);
+
+const spkCard=el('div','person',
+  `<div class="avatar group"><img src="${SPEAKERS_PHOTO}" alt="YourSpace speakers"/></div>`+
+  `<div class="role">Speakers</div><h4>YourSpace</h4>`+
+  `<div class="names">Sakshi Sethiya · Kalyani Damle · Yogitha Karthik · Rashi Nevatia · Vatsal Parmar</div>`+
+  `<div class="org">Group of Psychologists</div>`+
+  `<a href="https://www.instagram.com/yourspace_mentalhealth/" target="_blank" rel="noopener">Instagram ↗</a>`);
+$('#team').appendChild(spkCard);
 
 /* ---- nav active state (scroll spy) ---- */
 (function(){
