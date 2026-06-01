@@ -203,10 +203,10 @@ section{margin-bottom:64px;scroll-margin-top:80px;padding:32px 0}
 /* ---------- speakers ---------- */
 .team{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 @media(max-width:620px){.team{grid-template-columns:1fr}}
-.person{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
-.person .role{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--lav)}
-.person h4{font-family:'Fraunces',serif;font-weight:500;font-size:19px;margin:8px 0 4px}
-.person .org{font-size:12.5px;color:var(--ink2);margin-bottom:10px}
+.person{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:14px;padding:24px 18px;text-align:center}
+.person .role{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lav);margin-bottom:6px}
+.person h4{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin:0 0 6px}
+.person .org{font-size:13px;color:var(--ink2);margin-bottom:12px;text-align:center;line-height:1.5;display:block;background:none;border:none;border-radius:0;padding:0}
 .person a{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);text-decoration:none;padding:6px 11px;border:1px solid var(--teal);border-radius:999px;transition:.15s}
 .person a:hover{background:var(--teal);color:#0c1c2c}
 
@@ -264,11 +264,8 @@ footer{margin-top:30px;padding:30px 0 0;border-top:1px solid var(--line);display
 .slidecounter{text-align:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink3);letter-spacing:.08em}
 
 /* ---------- speaker avatar placeholder ---------- */
-.person .avatar{width:100px;height:100px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--lav),var(--teal));color:#0c1c2c;font-family:'Fraunces',serif;font-size:36px;font-weight:500;box-shadow:0 4px 14px rgba(0,0,0,.35);overflow:hidden}
+.person .avatar{width:120px;height:120px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--lav),var(--teal));color:#0c1c2c;font-family:'Fraunces',serif;font-size:36px;font-weight:500;box-shadow:0 4px 14px rgba(0,0,0,.35);overflow:hidden}
 .person .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.person .avatar.group{width:160px;height:160px;border-radius:14px}
-.person .avatar.group img{border-radius:14px}
-.person .names{font-size:12.5px;color:var(--ink2);margin:6px 0 4px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -694,16 +691,17 @@ const SPEAKERS_PHOTO='https://raw.githubusercontent.com/manasmjoshi/isoc-mumbai-
 
 const modCard=el('div','person',
   `<div class="avatar"><img src="${MOD_PHOTO}" alt="Manas Joshi"/></div>`+
-  `<div class="role">Moderator</div><h4>Manas Joshi</h4>`+
-  `<div class="org">Member, ISOC India Mumbai Chapter</div>`+
+  `<div class="role">Moderator</div>`+
+  `<h4>Internet Society Mumbai Chapter</h4>`+
+  `<div class="org">Manas Joshi</div>`+
   `<a href="https://www.linkedin.com/in/manasmjoshi/" target="_blank" rel="noopener">LinkedIn ↗</a>`);
 $('#team').appendChild(modCard);
 
 const spkCard=el('div','person',
-  `<div class="avatar group"><img src="${SPEAKERS_PHOTO}" alt="YourSpace speakers"/></div>`+
-  `<div class="role">Speakers</div><h4>YourSpace</h4>`+
-  `<div class="names">Sakshi Sethiya · Kalyani Damle · Yogitha Karthik · Rashi Nevatia · Vatsal Parmar</div>`+
-  `<div class="org">Group of Psychologists</div>`+
+  `<div class="avatar"><img src="${SPEAKERS_PHOTO}" alt="YourSpace speakers"/></div>`+
+  `<div class="role">Speakers</div>`+
+  `<h4>YourSpace</h4>`+
+  `<div class="org">Sakshi Sethiya · Kalyani Damle · Yogitha Karthik · Rashi Nevatia · Vatsal Parmar</div>`+
   `<a href="https://www.instagram.com/yourspace_mentalhealth/" target="_blank" rel="noopener">Instagram ↗</a>`);
 $('#team').appendChild(spkCard);
 
